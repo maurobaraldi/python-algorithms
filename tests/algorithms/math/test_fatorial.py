@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import unittest
-import fatorial
+from algorithms.math.fatorial import fatorial
 
 class TestFatorial(unittest.TestCase):
 
