@@ -1,9 +1,9 @@
 clean:
-	find . -name '*.pyc' -exec rm --force {} \;
-	find . -name '*.pyo' -exec rm --force {} \;
-	find . -name '*.orig' -exec rm --force {} \;
-	find . -name '*~' -exec rm --force {} \;
-	find . -depth -name '__pycache__' -exec rm --force --recursive {} \;
+	find . -name '*.pyc' -exec rm -f {} \;
+	find . -name '*.pyo' -exec rm -f {} \;
+	find . -name '*.orig' -exec rm -f {} \;
+	find . -name '*~' -exec rm -f {} \;
+	find . -depth -name '__pycache__' -exec rm -rf {} \;
 
 test: clean
-	pytest 
+	pytest  -v
