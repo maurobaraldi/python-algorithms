@@ -5,3 +5,5 @@ clean:
 	find . -name '*~' -exec rm --force {} \;
 	find . -depth -name '__pycache__' -exec rm --force --recursive {} \;
 
+test: clean
+	pytest 
