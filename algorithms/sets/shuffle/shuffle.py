@@ -3,7 +3,7 @@
 from random import randrange
 
 def fisher_yates(items):
-    """Fisher-Yates algorithm solution."""
+    """Fisher-Yates algorithm, O(n), solution."""
     i = len(items)
     if i <= 1:
         return items
