@@ -6,4 +6,4 @@ clean:
 	find . -depth -name '__pycache__' -exec rm -rf {} \;
 
 test: clean
-	pytest -v tests/algorithms/$(sub)
+	pytest -v tests/$(categ)/$(sub)
