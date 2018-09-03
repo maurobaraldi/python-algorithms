@@ -22,7 +22,7 @@ class TestLinkdeList(unittest.TestCase):
         self.assertIsInstance(linkedl, LinkedList)
         self.assertEqual(linkedl.head.data, 1)
 
-    def test_instantiate_a_linked_listi_with_three_nodes(self):
+    def test_instantiate_a_linked_list_with_three_nodes(self):
         linkedl = LinkedList()
 
         first = Node(1)
@@ -53,7 +53,7 @@ class TestLinkdeList(unittest.TestCase):
         linked_list.head = Node(1)
         linked_list.head.next = Node(2)
         linked_list.insert_after(linked_list.head, 3)
-        linked_list.print()
+        linked_list._print()
 
         self.assertEqual(linked_list.head.data, 1)
         self.assertEqual(linked_list.head.next.data, 3)

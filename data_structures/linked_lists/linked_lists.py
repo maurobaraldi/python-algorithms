@@ -1,21 +1,23 @@
 #!/usr/bin/env python
 
+
 class Node:
     def __init__(self, data):
         self.data = data  # Assign node data
         self.next = None  # Initialize next node as null
 
+
 class LinkedList:
     def __init__(self):
-        self.head = None  # Initialize Linkde List object
+        self.head = None  # Initialize Linked List object
 
-    def print(self):
-        next_node = self.head  # Start from head
+    def _print(self):
+        node = self.head  # Start from head
 
-        while(next_node):
-            print(next_node.data)
+        while node:
+            print(node.data)
             # After print node data, shift cursor to next node
-            next_node = next_node.next  
+            node = node.next
 
     def push(self, data):
         """Insert a new node at the beginning of Linked List."""
@@ -24,7 +26,7 @@ class LinkedList:
         self.head = node  # Move the head to point of the new Node
 
     def insert_after(self, previous, data):
-        """Insert a new node aftre the given previuous node."""
+        """Insert a new node after the given previous node."""
 
         # check if the given node (previous) exists
         if previous is None:
