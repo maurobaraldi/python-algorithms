@@ -34,22 +34,19 @@ class TestDoublyLinkdeList(unittest.TestCase):
         self.assertEqual(self.dll.head.next.data, 1)
         self.assertEqual(self.dll.head.next.prev.data, 2)
 
-    def test_insert_after_node_in_doubly_linked_list(self):
-        self.dll.push(1)
-        self.dll.push(2)
-        self.dll.insert_after(self.dll.head, 3)
-
-        self.assertEqual(self.dll.head.data, 2)
-        self.assertEqual(self.dll.head.next.data, 3)
-        self.assertEqual(self.dll.head.next.next.data, 1)
-
     def test_append_node_to_doubly_linked_list(self):
-        self.dll.push(1)
-        self.dll.push(3)
         self.dll.append(6)
+        self.dll.append(1)
+        self.dll.append(3)
+        self.dll.append(2)
 
-        self.assertEqual(self.dll.head.data, 3)
+        self.assertEqual(self.dll.head.data, 6)
         self.assertEqual(self.dll.head.next.data, 1)
-        self.assertEqual(self.dll.head.next.next.data, 6)
+        self.assertEqual(self.dll.tail.data, 2)
 
+    def test_delete_node_to_doubly_linked_list(self):
+        self.dll.append(6)
+        self.dll.append(1)
+        self.dll.remove(6)
 
+        self.assertEqual(self.dll.head.data, 1)
