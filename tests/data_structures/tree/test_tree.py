@@ -92,7 +92,7 @@ class TestBnarySearchTree(unittest.TestCase):
 
         self.assertEqual(stdout.getvalue().strip(), "1\n5\n10\n15\n17")
 
-    def test_find_in_tree(self):
+    def test_search_for_node_in_tree(self):
         tree = BinarySearchTree()
         tree.add(10)
         tree.add(15)
@@ -100,5 +100,6 @@ class TestBnarySearchTree(unittest.TestCase):
         tree.add(1)
         tree.add(17)
 
-        self.assertEqual(tree.find(5), 5)
+        self.assertEqual(tree.search(5), tree.root.left)
+        self.assertEqual(tree.search(17), tree.root.right.right)
 
