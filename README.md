@@ -1,5 +1,7 @@
 # Algorithms and Data Structure in Python
 
+[![Build Status](https://travis-ci.org/maurobaraldi/python-algorithms.svg?branch=master)](https://travis-ci.org/maurobaraldi/python-algorithms)
+
 This project was inspired by [JavaScript Algorithms and Data Structures](https://github.com/trekhleb/javascript-algorithms/) Thanks Oleksii Trekhleb for the initiative.
 
 This repository contains implementations of the most common algorithms and data structures for computer science. Some of then has more than one way to do it.
