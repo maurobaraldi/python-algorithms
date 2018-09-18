@@ -56,6 +56,7 @@ To run some especific algorithm for example run
 
 Here is a list of algorithms and data structures implemented.
 
+```
 ├── algorithms
 │   ├── data_structures
 │   │   └── linked_lists
@@ -77,3 +78,4 @@ Here is a list of algorithms and data structures implemented.
     ├── queue
     ├── stack
     └── tree
+```
