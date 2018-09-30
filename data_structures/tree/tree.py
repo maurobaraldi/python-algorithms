@@ -61,7 +61,15 @@ class BinarySearchTree:
 
             return None
 
-    def delete(self, value, node=None):
+    def min(self, node):
+        minimum = node
+
+        while minimum.left is not None:
+            minimum = minimum.left
+
+        return minimum
+
+    def delete(self, node, value):
         """
         Delete node by key.
 
@@ -71,18 +79,20 @@ class BinarySearchTree:
         3 - Node with no child or just one child (left or right).
         """
         if node is None:  # node if unknow, so search by key, and define a node.
-            node = self.search(value)
+            # node = self.search(value)
+            return node
 
         # Case 1
         if value < node.value:
-            node.left = self.delete(value, node.left)
+            node.left = self.delete(node.left, value)
 
         # Case 2
         elif value > node.value:
-            node.right = self.delete(value, node.right)
+            node.right = self.delete(node.right, value) 
 
         else:
 
+            # Node with only one child or no child
             if node.left is None:
                 n = node.right
                 node = None
@@ -92,14 +102,18 @@ class BinarySearchTree:
                 node = None
                 return n
 
+            # Node with two children: Get the inorder successor (smallerst in the right subtree).
+            n = self.min(node.right)
+            node.value = n.value  # Copy the inorder successor's content to this node.
+            node.right = self.delete(node.right, n.value)  # Delete the inorder successor.
 
-
+        return node
 
     def traverse(self, node):
         """Traverse tree and print each item."""
 
         if node is not None:
             self.traverse(node.left)  # Recursive traverse.
-            print(node.value)
+            print(node.value),
             self.traverse(node.right)
 
