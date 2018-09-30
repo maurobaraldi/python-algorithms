@@ -62,12 +62,22 @@ class BinarySearchTree:
             return None
 
     def min(self, node):
+        """Find the mminimum data value found in tree."""
         minimum = node
 
         while minimum.left is not None:
             minimum = minimum.left
 
         return minimum
+
+    def max(self, node):
+        """Find the mminimum data value found in tree."""
+        maximum = node
+
+        while maximum.right is not None:
+            maximum = maximum.right
+
+        return maximum
 
     def delete(self, node, value):
         """
@@ -109,11 +119,27 @@ class BinarySearchTree:
 
         return node
 
-    def traverse(self, node):
-        """Traverse tree and print each item."""
+    def in_order(self, node):
+        """Traverse (in_order) tree and print each item."""
 
         if node is not None:
-            self.traverse(node.left)  # Recursive traverse.
+            self.in_order(node.left)  # Recursive in_order.
             print(node.value),
-            self.traverse(node.right)
+            self.in_order(node.right)
+
+    def pre_order(self, node):
+        """Traverse (in_order) tree and print each item."""
+
+        if node is not None:
+            print(node.value),
+            self.pre_order(node.left)  # Recursive in_order.
+            self.pre_order(node.right)
+
+    def post_order(self, node):
+        """Traverse (in_order) tree and print each item."""
+
+        if node is not None:
+            self.post_order(node.left)  # Recursive in_order.
+            self.post_order(node.right)
+            print(node.value),
 

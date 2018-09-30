@@ -77,7 +77,7 @@ class TestBnarySearchTree(unittest.TestCase):
         self.assertEqual(tree.root.left.left.value, 1)
         self.assertEqual(tree.root.right.right.value, 17)
 
-    def test_traverse_tree(self):
+    def test_in_order_tree(self):
         tree = BinarySearchTree()
         tree.add(10)
         tree.add(15)
@@ -88,9 +88,39 @@ class TestBnarySearchTree(unittest.TestCase):
         stdout = StringIO()
 
         with contextlib.redirect_stdout(stdout):
-            tree.traverse(tree.root)
+            tree.in_order(tree.root)
 
         self.assertEqual(stdout.getvalue().strip(), "1\n5\n10\n15\n17")
+
+    def test_pre_order_tree(self):
+        tree = BinarySearchTree()
+        tree.add(10)
+        tree.add(15)
+        tree.add(5)
+        tree.add(1)
+        tree.add(17)
+
+        stdout = StringIO()
+
+        with contextlib.redirect_stdout(stdout):
+            tree.pre_order(tree.root)
+
+        self.assertEqual(stdout.getvalue().strip(), "10\n5\n1\n15\n17")
+
+    def test_post_order_tree(self):
+        tree = BinarySearchTree()
+        tree.add(10)
+        tree.add(15)
+        tree.add(5)
+        tree.add(1)
+        tree.add(17)
+
+        stdout = StringIO()
+
+        with contextlib.redirect_stdout(stdout):
+            tree.post_order(tree.root)
+
+        self.assertEqual(stdout.getvalue().strip(), "1\n5\n17\n15\n10")
 
     def test_search_for_node_in_tree(self):
         tree = BinarySearchTree()
@@ -103,6 +133,26 @@ class TestBnarySearchTree(unittest.TestCase):
         self.assertEqual(tree.search(5), tree.root.left)
         self.assertEqual(tree.search(17), tree.root.right.right)
 
+    def test_find_minor_value_in_tree(self):
+        tree = BinarySearchTree()
+        tree.add(10)
+        tree.add(15)
+        tree.add(5)
+        tree.add(1)
+        tree.add(17)
+
+        self.assertEqual(tree.min(tree.root).value, 1)
+
+    def test_find_major_value_in_tree(self):
+        tree = BinarySearchTree()
+        tree.add(10)
+        tree.add(15)
+        tree.add(5)
+        tree.add(1)
+        tree.add(17)
+
+        self.assertEqual(tree.max(tree.root).value, 17)
+
     def test_delete_node_from_subtree(self):
         tree = BinarySearchTree()
         tree.add(50)
@@ -112,13 +162,12 @@ class TestBnarySearchTree(unittest.TestCase):
         tree.add(70)
         tree.add(60)
         tree.add(80)
-        #import pdb; pdb.set_trace()
         tree.delete(tree.root, 20)
 
         stdout = StringIO()
 
         with contextlib.redirect_stdout(stdout):
-            tree.traverse(tree.root)
+            tree.in_order(tree.root)
 
         self.assertEqual(stdout.getvalue().strip(), "30\n40\n50\n60\n70\n80")
 
