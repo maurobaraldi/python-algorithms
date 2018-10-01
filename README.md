@@ -1,6 +1,7 @@
 # Algorithms and Data Structure in Python
 
 [![Build Status](https://travis-ci.org/maurobaraldi/python-algorithms.svg?branch=master)](https://travis-ci.org/maurobaraldi/python-algorithms)
+![CircleCI (all branches)](https://img.shields.io/circleci/project/github/maurobaraldi/python-algorithms.svg)
 [![codecov](https://codecov.io/gh/maurobaraldi/python-algorithms/branch/master/graph/badge.svg)](https://codecov.io/gh/maurobaraldi/python-algorithms)
 
 This project was inspired by [JavaScript Algorithms and Data Structures](https://github.com/trekhleb/javascript-algorithms/) Thanks Oleksii Trekhleb for the initiative.
