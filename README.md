@@ -3,6 +3,8 @@
 ![CircleCI (all branches)](https://img.shields.io/circleci/project/github/maurobaraldi/python-algorithms.svg)
 [![codecov](https://codecov.io/gh/maurobaraldi/python-algorithms/branch/master/graph/badge.svg)](https://codecov.io/gh/maurobaraldi/python-algorithms)
 [![Requirements Status](https://requires.io/github/maurobaraldi/python-algorithms/requirements.svg?branch=master)](https://requires.io/github/maurobaraldi/python-algorithms/requirements/?branch=master)
+[![image](https://img.shields.io/github/contributors/maurobaraldi/python-algorithms.svg)](https://github.com/maurobaraldi/python-algorithms/graphs/contributors)
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/maurobaraldi)
 
 This project was inspired by [JavaScript Algorithms and Data Structures](https://github.com/trekhleb/javascript-algorithms/) Thanks Oleksii Trekhleb for the initiative.
 
