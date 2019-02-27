@@ -5,6 +5,9 @@ class Node:
     def __init__(self, data):
         self.data = data  # Assign node data
         self.next = None  # Initialize next node as null
+    
+    def __repr__(self):
+        return "Node({})".format(self.data)
 
 
 class LinkedList:
