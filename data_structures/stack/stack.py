@@ -31,21 +31,18 @@ class Stack:
         """Add an element, at the top, of Stack"""
         if self.is_full():
             raise FullStackError
-
         self.stack.append(item)
 
     def pop(self):
         """Remove an element, last pushed, of Stack"""
         if self.is_empty():
             raise EmptyStackError
-
         return self.stack.pop()
 
     def peek(self):
         """Return top element of the Stac."""
         if self.is_empty():
             raise EmptyStackError
-
         return self.stack[len(self.stack) - 1]
 
     def size(self):
