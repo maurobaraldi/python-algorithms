@@ -2,6 +2,7 @@
 
 import unittest
 from data_structures.linked_lists.linked_lists import Node, LinkedList
+from data_structures.linked_lists.problems import *
 
 
 class TestNode(unittest.TestCase):
@@ -79,7 +80,7 @@ class TestLinkdeList(unittest.TestCase):
         self.assertEqual(linked_list.head.data, 1)
         self.assertEqual(linked_list.head.next.data, 3)
  
-    def test_reverse_a_linked_list(self):
+    def test_reverse_a_linked_list_interactively(self):
         linked_list = LinkedList()
         linked_list.append(1)
         linked_list.append(2)
@@ -88,4 +89,123 @@ class TestLinkdeList(unittest.TestCase):
 
         self.assertEqual(linked_list.head.data, 3)
         self.assertEqual(linked_list.head.next.next.data, 1)
+
+    @unittest.skip("Testing")
+    def test_reverse_a_linked_list_recursively(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        linked_list.reverse_recursive(linked_list.head)
+
+        self.assertEqual(linked_list.head.data, 3)
+        self.assertEqual(linked_list.head.next.next.data, 1)
+
+    def test_search_element_in_linked_list_interactively(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        self.assertTrue(linked_list.exists(2))
+        self.assertFalse(linked_list.exists(4))
+
+    def test_search_element_in_linked_list_recursively(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        self.assertTrue(linked_list.exists_recursive(linked_list.head, 2))
+        self.assertFalse(linked_list.exists_recursive(linked_list.head, 4))
+
+    def test_search_element_by_index_in_linked_list(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        self.assertTrue(linked_list.get_node(1), 2)
+        self.assertFalse(linked_list.get_node(4), 0)
+
+    def test_get_length_of_a_linked_list_interactively(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        self.assertEqual(linked_list.length, 3)
  
+    def test_get_length_of_a_linked_list_recursively(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        self.assertEqual(linked_list.length_recursive(linked_list.head), 3)
+
+    ## Problems solved with Linked Lists - LeetCode
+        
+    def test_leetcode_merge_two_sorted_lists(self):
+        L1 = ListNode(val=1)
+        L1.next = ListNode(val=2)
+        L1.next.next = ListNode(val=4)
+        L2 = ListNode(val=1)
+        L2.next = ListNode(val=3)
+        L2.next.next = ListNode(val=4)
+        res = SolutionLeetCode1().mergeTwoLists(L1, L2)
+
+        self.assertTrue(
+            all([
+                res.val == 1, 
+                res.next.val == 1, 
+                res.next.next.val == 2, 
+                res.next.next.next.val == 3,
+                res.next.next.next.next.val == 4
+            ])
+        )
+
+        
+    ## Problems with Linked Lists - Geeks for Geeks
+        
+    def test_find_middle_in_a_odd_elements_linked_list(self):
+        """
+        Time Complexity: O(n), for traversing.
+        Auxiliary Space: O(n), for Vector.
+        """
+
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        linked_list.append(4)
+        linked_list.append(5)
+
+        current = linked_list.head
+        values = []
+
+        while current is not None:
+            values.append(current.data)
+            current = current.next
+        
+        self.assertEqual(values[len(values)//2], 3)
+    
+    def test_count_occurences_of_element_in_a_linked_list(self):
+        """
+        Time Complexity: O(n) 
+        Auxiliary Space: O(1)
+        """
+
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        linked_list.append(4)
+        linked_list.append(5)
+        linked_list.append(2)
+
+        value = 2
+        current = linked_list.head
+        counter = 0
+
+        while current is not None:
+            if current.data == value:
+                counter += 1
+            current = current.next
+        
+        self.assertEqual(counter, 2)
